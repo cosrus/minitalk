@@ -46,9 +46,9 @@ static char	*sign_ox(char *str, char type, int htag)
 	len = 0;
 	if (type == 'X')
 	{
-		while (n_str[len])
+		while (str[len])
 		{
-			n_str[len] = ft_toupper(n_str[len]);
+			str[len] = ft_toupper(str[len]);
 			len++;
 		}
 	}
