@@ -6,7 +6,7 @@
 #    By: crusu <crusu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 18:33:25 by crusu             #+#    #+#              #
-#    Updated: 2023/03/28 23:02:16 by crusu            ###   ########.fr        #
+#    Updated: 2023/04/01 21:33:51 by crusu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ $(OBJS_DIR)%.o : %.c header/libft.h
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Done !"
+	@echo "myLibft Done !"
 
 all: $(NAME)
 
