@@ -6,7 +6,7 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:54:56 by crusu             #+#    #+#             */
-/*   Updated: 2023/04/02 16:43:07 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/01 21:22:44 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,16 @@ char	add_bit(int bit)
 }
 
 void	ft_decoder(int sig)
-{	
-	static int	clpid;
-	static int	let;
+{
+	static char	let;
 	static int	bit;
 
 	bit++;
 	if (sig == SIGUSR1)
 		let += add_bit(bit);
-	if (bit == 16)
+	if (bit == 8)
 	{
-		if (!clpid)
-		{
-			clpid = let;
-			kill(clpid, SIGUSR1);
-			write(1, "1", 1);
-		}
-		else if (!let)
-		{
-			kill(clpid, SIGUSR2);
-			write(1, "0", 1);
-			clpid = 0;
-		}
-		else
-			write(1, &let, 1);
+		write(1, &let, 1);
 		let = 0;
 		bit = 0;
 	}
