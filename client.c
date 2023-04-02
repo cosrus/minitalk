@@ -6,18 +6,18 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 17:51:17 by crusu             #+#    #+#             */
-/*   Updated: 2023/04/01 21:29:24 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/02 16:41:00 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_sender(char let, int pid)
+void	ft_sender(int let, int pid)
 {
 	int	bit;
 
 	bit = 0;
-	while (bit < 8)
+	while (bit < 16)
 	{
 		if (let % 2)
 			kill(pid, SIGUSR1);
@@ -59,10 +59,12 @@ int	main(int argc, char *argv[])
 		return (0);
 	pid = ft_atoi(str);
 	str = argv[2];
+	ft_sender(getpid(), pid);
 	while (*str)
 	{
 		ft_sender(*str, pid);
 		str++;
 	}
+	ft_sender(0, pid);
 	return (0);
 }
