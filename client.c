@@ -6,11 +6,28 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 17:51:17 by crusu             #+#    #+#             */
-/*   Updated: 2023/04/03 01:23:27 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/04 01:25:09 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	ft_pidsender(char *str, int pid)
+{
+	static int	pos;
+
+	while (pos < 8)
+	{
+		if (*str)
+		{
+			ft_sender(*str, pid);
+			str++;
+		}
+		else
+			ft_sender(0, pid);
+		pos++;
+	}
+}
 
 void	ft_sender(char let, int pid)
 {
@@ -23,7 +40,7 @@ void	ft_sender(char let, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		sleep(0.999);
+		usleep(1);
 		bit++;
 	}
 }
@@ -57,7 +74,13 @@ int	main(int argc, char *argv[])
 	if (ft_errno(str))
 		return (0);
 	pid = ft_atoi(str);
+	ft_pidsender(str, pid);
 	str = argv[2];
+	if (sleep(10))
+	{
+		ft_printf("ERROR: Unable to reach server\nTried to send %s to %d", str, pid);
+		return (0);
+	}
 	while (*str)
 	{
 		ft_sender(*str, pid);
