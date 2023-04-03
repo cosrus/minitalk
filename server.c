@@ -6,7 +6,7 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:54:56 by crusu             #+#    #+#             */
-/*   Updated: 2023/04/01 21:22:44 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/03 01:05:42 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	add_bit(int bit)
 
 void	ft_decoder(int sig)
 {
-	static char	let;
+	static int	let;
 	static int	bit;
 
 	bit++;

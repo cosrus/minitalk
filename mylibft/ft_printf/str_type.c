@@ -6,7 +6,7 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:58:16 by crusu             #+#    #+#             */
-/*   Updated: 2023/03/28 20:59:47 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/02 22:57:36 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static int	type_s(va_list arg, t_flag flag)
 
 static int	type_c(va_list arg, t_flag flag)
 {
-	char	c;
-	int		w;
-	int		len;
+	int	c;
+	int	w;
+	int	len;
 
 	w = 0;
 	len = 1;

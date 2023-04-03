@@ -6,7 +6,7 @@
 /*   By: crusu <crusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 17:51:17 by crusu             #+#    #+#             */
-/*   Updated: 2023/04/01 21:29:24 by crusu            ###   ########.fr       */
+/*   Updated: 2023/04/03 01:23:27 by crusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ void	ft_sender(char let, int pid)
 	bit = 0;
 	while (bit < 8)
 	{
-		if (let % 2)
+		if (let >> bit & 1)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(50);
+		sleep(0.999);
 		bit++;
-		let /= 2;
 	}
 }
 
