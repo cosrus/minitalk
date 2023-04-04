@@ -14,8 +14,9 @@
 
 void	ft_pidsender(char *str, int pid)
 {
-	static int	pos;
+	int	pos;
 
+	pos = 0;
 	while (pos < 8)
 	{
 		if (*str)
