@@ -62,8 +62,10 @@ void	ft_getping(int sig)
 	}
 	else
 	{
+		if (status == SIGUSR1)
+			ft_printf("ERROR: Something went wrong\n")
 		if (!status)
-			ft_printf("ERROR: Something went wrong\n");
+			ft_printf("ERROR: Unable to comunicate with server\n");
 	}
 }
 
