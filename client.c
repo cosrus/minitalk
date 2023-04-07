@@ -23,7 +23,7 @@ void	ft_sender(char let, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(1);
+		usleep(30);
 		bit++;
 	}
 }
